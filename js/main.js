@@ -37,5 +37,5 @@ function updateTotal() {
     var _totalWordCount = _wordCountRunningTotal.reduce(function(ov, bv) { return ov + bv; }, 0);
     $('.count-total').text(_totalWordCount);
 }
-    
+
 }( jQuery ));
