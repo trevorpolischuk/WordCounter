@@ -19,9 +19,12 @@ grunt.initConfig({
     },
     // Project configuration.
     uglify: {
+        options: {
+            mangle: false
+        },
         my_target: {
             files: {
-                'js/wordcounter.min.js': ['js/main.js']
+                'wordcounter.min.js': ['js/main.js']
             }
         }
     },
@@ -37,6 +40,6 @@ grunt.loadNpmTasks('grunt-contrib-qunit');
 grunt.loadNpmTasks('grunt-contrib-watch');
 grunt.loadNpmTasks('grunt-contrib-uglify');
 
-grunt.registerTask('default', ['qunit','jshint', 'watch', 'uglify']);
+grunt.registerTask('default', ['qunit', 'jshint', 'watch', 'uglify']);
 
 };
