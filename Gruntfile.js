@@ -18,7 +18,7 @@ module.exports = function(grunt) {
       }
     },
     watch: {
-      files: ['<%= jshint.files %>'],
+      files: ['js/main.js'],
       tasks: ['jshint', 'qunit']
     }
   });
@@ -27,7 +27,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-qunit');
 
-  grunt.registerTask('test', ['jshint', 'qunit']);
   grunt.registerTask('default', ['jshint', 'qunit']);
 
 };
