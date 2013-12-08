@@ -10,6 +10,10 @@ Counting words on a website is a tedious and repetitive task. Usually, you would
 - Getting the average length of blog posts to make sure they meet minimum SEO standards.
 - Counting words because that's all this thing does.
 
+##Demo
+
+[Here is a quick demonstration](http://jsfiddle.net/Z3AqL/). Just double click an element on the page to update the count.
+
 
 ##Installation
 
