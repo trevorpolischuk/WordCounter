@@ -4,7 +4,7 @@ Trevor's Word Counter.
 
 var runningTotal = new Array();
 
-$('.navbar-brand').append('<h5 class="word-count-total">Page Word Count: <span class="count-total">COUNT HERE</span></h5>');
+$('body').prepend('<h5 class="word-count-total">Page Word Count: <span class="count-total">COUNT HERE</span></h5>');
 
 $(document).on('dblclick', function(e) {
     localCounter(e);
@@ -12,9 +12,9 @@ $(document).on('dblclick', function(e) {
 
 function localCounter(e) {
     var $clickedElement = $(e.target);
-    if ($clickedElement.hasClass('counted') == true)
+    if ($clickedElement.hasClass('counted') === true || $clickedElement.hasClass('item-word-count') === true)
     {
-        console.log ('This item has already been counted.')
+        console.log('This item has already been counted.');
     }
     else
     {
@@ -22,7 +22,7 @@ function localCounter(e) {
         var wordArray = $clickedElement.text().split(' ');
         _localCounter = wordArray.length;
         var convertToInt = parseInt(_localCounter,10);
-        $clickedElement.append('<h6>Item Word Count: <span class="small-count">' + convertToInt + '</span></h6>' );
+        $clickedElement.append('<h6 class="item-word-count">Item Word Count: <span class="small-count">' + convertToInt + '</span></h6>' );
         runningTotal.push(convertToInt);
         updateTotal();
     }
