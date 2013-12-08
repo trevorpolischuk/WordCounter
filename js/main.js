@@ -2,7 +2,11 @@
 Trevor's Word Counter.
 */
 
-var runningTotal = new Array();
+// Global variable :-(
+
+var _wordCountRunningTotal = [];
+
+(function( $ ) {
 
 $('body').prepend('<h5 class="word-count-total">Page Word Count: <span class="count-total">COUNT HERE</span></h5>');
 
@@ -23,13 +27,15 @@ function localCounter(e) {
         _localCounter = wordArray.length;
         var convertToInt = parseInt(_localCounter,10);
         $clickedElement.append('<h6 class="item-word-count">Item Word Count: <span class="small-count">' + convertToInt + '</span></h6>' );
-        runningTotal.push(convertToInt);
+        _wordCountRunningTotal.push(convertToInt);
         updateTotal();
     }
 }
 
 function updateTotal() {
     //Reduce only works in latest browsers
-    var _totalWordCount = runningTotal.reduce(function(ov, bv) { return ov + bv; }, 0);
+    var _totalWordCount = _wordCountRunningTotal.reduce(function(ov, bv) { return ov + bv; }, 0);
     $('.count-total').text(_totalWordCount);
 }
+    
+}( jQuery ));

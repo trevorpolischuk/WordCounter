@@ -13,9 +13,10 @@ test( "Testing if the class has been added and the total value is being summed",
     ok( classCheck, true, "The class has not been added to the element");
 });
 
-test( "Testing if the runningTotalArray is being increased", 1, function() {
-    var preTotal = runningTotal.length;
+
+test( "Testing if the _wordCountRunningTotalArray is being increased", 1, function() {
+    var preTotal = _wordCountRunningTotal.length;
     $('.test-heading').trigger( "dblclick" );
-    var postTotal = runningTotal.length;
+    var postTotal = _wordCountRunningTotal.length;
     ok(preTotal < postTotal, "Check that the array is being .pushed() correctly");
 });
