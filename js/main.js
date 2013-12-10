@@ -17,11 +17,7 @@ $(document).on('dblclick', function(e) {
 function localCounter(e) {
     e.preventDefault();
     var $clickedElement = $(e.target);
-    if ($clickedElement.hasClass('counted') === true || $clickedElement.hasClass('item-word-count') === true)
-    {
-        console.log('This item has already been counted.');
-    }
-    else
+    if ($clickedElement.hasClass('counted') === false || $clickedElement.hasClass('item-word-count') === false)
     {
         $clickedElement.addClass('counted');
         var wordArray = $clickedElement.text().split(' ');
