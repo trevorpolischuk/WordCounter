@@ -8,8 +8,7 @@ test( "Testing if the class has been added and the total value is being summed",
     $paragraph.trigger( "dblclick" );
     var classCheck = $('.test-para').hasClass('counted');
     var findTotal = $('.count-total').text();
-    console.log(findTotal);
-    equal( 39, findTotal, "String '1' and number 1 have the same value" );
+    equal( 39, findTotal, "The total is not being summed together correctly" );
     ok( classCheck, true, "The class has not been added to the element");
 });
 

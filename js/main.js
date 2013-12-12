@@ -2,13 +2,15 @@
 Trevor's Word Counter.
 */
 
-// Global variable :-(
+//TODO Make a namespace for the plugin and move this inside, then update the test
 
 var _wordCountRunningTotal = [];
 
 (function( $ ) {
 
-$('body').prepend('<h5 class="word-count-total counted">Page Word Count: <span class="count-total counted">COUNT HERE</span></h5>');
+var pageWordCount = '<h5 class="word-count-total counted"> Page Word Count: <span class="count-total counted">COUNT HERE</span><\/h5>';
+
+$('body').prepend(pageWordCount);
 
 $(document).on('dblclick', function(e) {
     localCounter(e);
@@ -17,9 +19,7 @@ $(document).on('dblclick', function(e) {
 function localCounter(e) {
     e.preventDefault();
     var $clickedElement = $(e.target);
-
-    //what is fucked up here
-    if ($clickedElement.hasClass('counted') === false)//|| $clickedElement.hasClass('item-word-count') === true
+    if ($clickedElement.hasClass('counted') === false)
     {
         $clickedElement.addClass('counted');
         var wordArray = $clickedElement.text().split(' ');
@@ -29,7 +29,6 @@ function localCounter(e) {
         _wordCountRunningTotal.push(convertToInt);
         updateTotal();
     }
-       // console.log($clickedElement.hasClass('item-word-count'));
 }
 
 function updateTotal() {
