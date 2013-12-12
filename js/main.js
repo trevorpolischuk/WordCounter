@@ -8,7 +8,7 @@ var _wordCountRunningTotal = [];
 
 (function( $ ) {
 
-$('body').prepend('<h5 class="word-count-total">Page Word Count: <span class="count-total">COUNT HERE</span></h5>');
+$('body').prepend('<h5 class="word-count-total counted">Page Word Count: <span class="count-total counted">COUNT HERE</span></h5>');
 
 $(document).on('dblclick', function(e) {
     localCounter(e);
@@ -17,16 +17,19 @@ $(document).on('dblclick', function(e) {
 function localCounter(e) {
     e.preventDefault();
     var $clickedElement = $(e.target);
-    if ($clickedElement.hasClass('counted') === false || $clickedElement.hasClass('item-word-count') === false)
+
+    //what is fucked up here
+    if ($clickedElement.hasClass('counted') === false)//|| $clickedElement.hasClass('item-word-count') === true
     {
         $clickedElement.addClass('counted');
         var wordArray = $clickedElement.text().split(' ');
         _localCounter = wordArray.length;
         var convertToInt = parseInt(_localCounter,10);
-        $clickedElement.append('<h6 class="item-word-count">Item Word Count: <span class="small-count">' + convertToInt + '</span></h6>' );
+        $clickedElement.append('<h6 class="item-word-count counted">Item Word Count: <span class="small-count counted">' + convertToInt + '</span></h6>' );
         _wordCountRunningTotal.push(convertToInt);
         updateTotal();
     }
+       // console.log($clickedElement.hasClass('item-word-count'));
 }
 
 function updateTotal() {
