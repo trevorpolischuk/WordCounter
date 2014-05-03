@@ -7,8 +7,8 @@
     $.fn.wordCounter = function() {
 
         var totalCount = 0;
-        var localCountHTML ='<h6 class="item-word-count counted">Current Element Count: <span class="small-count counted">' + totalCount + '</span></h6>'
-        var pageWordCount = '<h5 class="word-count-total counted"> Page Word Count: <span class="count-total counted">COUNT HERE</span><\/h5>';
+        var localCountHTML ='<h6 class="item-word-count counted">Current Element Count: <span class="small-count counted"></span></h6>';
+        var pageWordCount = '<h5 class="word-count-total counted"> Page Word Count: <span class="count-total counted">0</span><\/h5>';
 
         //TODO: Move this to an initializer
         //Bind the double click event to our counter

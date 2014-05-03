@@ -3,7 +3,7 @@ module.exports = function(grunt) {
 grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     qunit: {
-        files: ['index.html']
+        files: ['tests.html']
     },
     jshint: {
         files: ['Gruntfile.js', 'js/main.js', 'tests/resources/tests.js'],
@@ -29,7 +29,7 @@ grunt.initConfig({
         }
     },
     watch: {
-        files: ['js/main.js'],
+        files: ['js/main.js', 'tests/resources/tests.js'],
         tasks: ['jshint', 'qunit', 'uglify']
     }
 });
