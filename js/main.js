@@ -1,40 +1,43 @@
-/*
-Trevor's Word Counter.
-*/
 
-//TODO Make a namespace for the plugin and move this inside, then update the test
+//Protecting the use of $
+(function ( $ ) {
 
-var _wordCountRunningTotal = [];
+    //Extending jQuery with our own function
 
-(function( $ ) {
+    $.fn.wordCounter = function() {
 
-var pageWordCount = '<h5 class="word-count-total counted"> Page Word Count: <span class="count-total counted">COUNT HERE</span><\/h5>';
+        var totalCount = 0;
+        var localCountHTML ='<h6 class="item-word-count counted">Current Element Count: <span class="small-count counted">' + totalCount + '</span></h6>'
+        var pageWordCount = '<h5 class="word-count-total counted"> Page Word Count: <span class="count-total counted">COUNT HERE</span><\/h5>';
 
-$('body').prepend(pageWordCount);
+        //TODO: Move this to an initializer
+        //Bind the double click event to our counter
+        $(document).on('dblclick', function(e) {
+            localCounter(e);
+        });
+        $('body').prepend(pageWordCount);
 
-$(document).on('dblclick', function(e) {
-    localCounter(e);
-});
+        //Our Counter
+        function localCounter(e) {
+            e.preventDefault();
+            var $clickedElement = $(e.target);
+            //If the element hasn't been clicked
+            if ($clickedElement.hasClass('counted') === false)
+            {
+                //Add the counted class
+                $clickedElement.addClass('counted');
+                var wordArray = $clickedElement.text().split(' ');
+                _localCounter = wordArray.length;
+                var elemWordCount = parseInt(_localCounter,10);
+                totalCount = totalCount + elemWordCount;
+                $clickedElement.append(localCountHTML);
+                $clickedElement.find('.small-count').html(elemWordCount);
+                $('.count-total').text(totalCount);
+            }
 
-function localCounter(e) {
-    e.preventDefault();
-    var $clickedElement = $(e.target);
-    if ($clickedElement.hasClass('counted') === false)
-    {
-        $clickedElement.addClass('counted');
-        var wordArray = $clickedElement.text().split(' ');
-        _localCounter = wordArray.length;
-        var convertToInt = parseInt(_localCounter,10);
-        $clickedElement.append('<h6 class="item-word-count counted">Item Word Count: <span class="small-count counted">' + convertToInt + '</span></h6>' );
-        _wordCountRunningTotal.push(convertToInt);
-        updateTotal();
-    }
-}
-
-function updateTotal() {
-    //Reduce only works in latest browsers
-    var _totalWordCount = _wordCountRunningTotal.reduce(function(ov, bv) { return ov + bv; }, 0);
-    $('.count-total').text(_totalWordCount);
-}
+        }
+    };
 
 }( jQuery ));
+
+$(document).wordCounter();
