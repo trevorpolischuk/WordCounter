@@ -34,7 +34,6 @@
                 $clickedElement.find('.small-count').html(elemWordCount);
                 $('.count-total').text(totalCount);
             }
-
         }
 
         init();
