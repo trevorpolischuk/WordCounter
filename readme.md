@@ -12,7 +12,7 @@ Counting words on a website is a tedious and repetitive task. Usually, you would
 
 ##Demo
 
-[Here is a quick demonstration](http://jsfiddle.net/Z3AqL/). Just double click an element on the page to update the count.
+[Here is a quick demonstration](http://jsfiddle.net/d6wHA/). Just double click an element on the page to update the count.
 
 
 ##Installation
@@ -35,7 +35,4 @@ Installing WordCounter is very simple. Just include the [wordcounter.min.js](htt
 ```
 
 ####Contributing and Pull Requests
-I appreciate any input on my code and will accept pull requests that have clear explanations for how it improves the script. Pulling the whole repo includes a mock Bootstrap installation as well as a small suite of tests using qUnit with Grunt as a task runner.
-
-#####Note:
-This script uses the .reduce() function that was included with ECMAscript 5, so it will not be supported in older broswers like IE8. However, this is more of a temporary utility rather than something to include in your web page at all times. Feel free to make a fork if this functionality is important to your project!
+I appreciate any input on my code and will accept pull requests that have clear explanations for how it improves the script. Pulling the whole repo includes a mock Twitter Bootstrap installation as well as a small suite of tests using qUnit with Grunt as a task runner.
